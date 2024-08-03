@@ -1,5 +1,5 @@
 {% set name = "agox" %}
-{% set version = "3.1.1" %}
+{% set version = "3.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/agox-{{ version }}.tar.gz
-  sha256: 887a940876bd8354fdfb5f90d7b8766282a063086c7edca4c1de5927e154534c
+  sha256: 133cbe1e4d543eb8d9238d1f2fe4639b28ad237700e5c7555061d24a3227aef7
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
