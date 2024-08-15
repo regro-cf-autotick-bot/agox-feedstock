@@ -11,12 +11,13 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
@@ -33,7 +34,6 @@ requirements:
     - matscipy
     - scikit-learn
     - numpy <1.24
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
